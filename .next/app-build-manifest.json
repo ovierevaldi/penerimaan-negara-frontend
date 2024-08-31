@@ -16,10 +16,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/login/page.js"
     ],
-    "/pajak/page": [
+    "/dashboard/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/pajak/page.js"
+      "static/chunks/app/dashboard/page.js"
+    ],
+    "/report-setoran-bulanan/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/report-setoran-bulanan/page.js"
     ]
   }
 }
