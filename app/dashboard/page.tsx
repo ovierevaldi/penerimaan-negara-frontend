@@ -8,8 +8,19 @@ import { Bar } from "react-chartjs-2";
 import Chart from './../../src/Chart'
 import Header from "../common/header/header";
 import Sidebar from "../common/sidebar/sidebar";
+import { getCookie } from 'cookies-next';
+import { redirect, useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function DashboardPage() {
+    useEffect(() => {
+        
+        if(!getCookie('token')){
+            redirect('login')
+        }
+    }, []);
+    
+    
     return(
        <div>
             <div>

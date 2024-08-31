@@ -4,13 +4,21 @@ import { redirect, useRouter } from "next/navigation";
 import { NextResponse, NextRequest } from 'next/server'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { setCookie, getCookie } from 'cookies-next';
 
 
 export default function LoginPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
-    const router = useRouter()
+    const router = useRouter();
+   
+    useEffect(() => {
+        
+        if(getCookie('token')){
+            redirect('dashboard')
+        }
+    }, []);
 
     const requestLogin = async (event) => {
         event.preventDefault();
@@ -22,6 +30,7 @@ export default function LoginPage() {
                 })
                 .then(function (response) {
                     setErrorMsg('Login Success !');
+                    setCookie('token', response.data);
                     router.push('/dashboard')
                 })
                 .catch(function (error) {
