@@ -15,6 +15,7 @@
     "@amcharts/amcharts5": "^5.10.4",
     "@amcharts/amcharts5-fonts": "^5.0.1",
     "@amcharts/amcharts5-geodata": "^5.1.4",
+    "axios": "^1.7.6",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "chart.js": "^4.4.4",
