@@ -1,50 +1,61 @@
 'use client'
 
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
+import { NextResponse, NextRequest } from 'next/server'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+
 export default function LoginPage() {
-    // const [posts, setPosts] = useState([]);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorMsg, setErrorMsg] = useState('');
+    const router = useRouter()
+
     const requestLogin = async (event) => {
         event.preventDefault();
         try{
             const response = await  
                 axios.post('http://localhost:3000/auth/login',{
-                    username: '11111111',
-                    password: 'abc123'
+                    username: username,
+                    password: password
                 })
                 .then(function (response) {
-                    console.log(response);
+                    setErrorMsg('Login Success !');
+                    router.push('/dashboard')
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    setErrorMsg(error.response.data.message)
                 });
         }
         catch(err){
 
         }
-    // const login = true;
-    // if (!login) {
-    //     redirect('dashboard')
-    //   }
     }
       
     return(
-    <div className="container">
-                <form action="" className="needs-validation">
-                    <h1 className="text-center">Login Page</h1>
-                    <div className="input-group mb-3">
-                        <span className="input-group-text" id="input-username">Username</span>
-                        <input type="number" className="form-control" minLength={10} maxLength={10} />
-                        
-                    </div>
-                    <div className="input-group mb-3">
-                        <span className="input-group-text" id="input-password">Password</span>
-                        <input type="password" className="form-control" />
-                    </div>
-                        <button type="button" className="btn btn-primary w-100" onClick={requestLogin}>Login</button>
-                </form>
+    <div className="container"> 
+        <form action="" className="needs-validation">
+            <h1 className="text-center">Login Page</h1>
+            <div className="input-group mb-3">
+                <span className="input-group-text" id="input-username">Username</span>
+                <input id="username" value={username} type="number" onChange={(event) => setUsername(event.target.value)} className="form-control" minLength={10} maxLength={10} />
+                
             </div>
+            <div className="input-group mb-3">
+                <span className="input-group-text" id="input-password">Password</span>
+                <input id="password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} className="form-control" />
+            </div>
+                <button type="button" className="btn btn-primary w-100" onClick={requestLogin}>Login</button>
+
+             
+        </form>
+            <div>
+                <span className="text-danger">{errorMsg}</span>
+            </div>
+
+    </div>
+
+    
     )
 }
