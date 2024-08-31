@@ -1,6 +1,0 @@
-{
-  "/dashboard/page": "app/dashboard/page.js",
-  "/input-setoran-bulanan/page": "app/input-setoran-bulanan/page.js",
-  "/login/page": "app/login/page.js",
-  "/update-setoran-bulanan/page": "app/update-setoran-bulanan/page.js"
-}
