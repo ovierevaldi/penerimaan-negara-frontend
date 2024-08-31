@@ -1,10 +1,10 @@
 import { redirect } from "next/navigation";
 
 export default function LoginPage() {
-    const login = true;
-    if (!login) {
-        redirect('dashboard')
-      }
+    // const login = true;
+    // if (!login) {
+    //     redirect('dashboard')
+    //   }
       
     return(
     <div className="container">

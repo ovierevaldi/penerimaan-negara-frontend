@@ -1,0 +1,8 @@
+.no-bullet-list{
+    list-style: none;
+}
+
+.link-sidebar{
+    color: white !important;
+    text-decoration: none !important;
+}
