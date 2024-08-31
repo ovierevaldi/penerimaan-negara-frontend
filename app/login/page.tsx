@@ -1,9 +1,9 @@
 import { redirect } from "next/navigation";
 
 export default function LoginPage() {
-    const login = false;
-    if (login) {
-        redirect('pajak')
+    const login = true;
+    if (!login) {
+        redirect('dashboard')
       }
       
     return(

@@ -7,7 +7,7 @@ export default function Page() {
       redirect('login')
     }
     else{
-      redirect('pajak')
+      redirect('dashboard')
     }
     return(
     <main>
