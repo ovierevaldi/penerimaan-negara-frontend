@@ -130,7 +130,6 @@ export default function InputPemasukanPage() {
     };
 
     const postRequest = async (url, postData, token) => {
-        console.log('a')
         try {
             const res = await axios.post(url, postData, {
                 headers: {
@@ -138,9 +137,9 @@ export default function InputPemasukanPage() {
                     'Content-Type': 'application/json'
                 }
             });
-            setResponse(res.data.message);
+            setResponse('Input Pemasukan Sukses');
         } catch (err) {
-            setResponse(err.data.message);
+            setResponse('Input Pemasukan Gagal');
         }
     };
 
@@ -192,7 +191,7 @@ export default function InputPemasukanPage() {
                     </div>
                 </div>
 
-                {selectedJenisPajak == '4' &&
+                {selectedJenisPajak == '4' && selectedTipePajak == '2' &&
                 <div className="input-container" >
                     <span className="form-title"><b>Sub Iuran</b></span>
                     <div className="input-group">
