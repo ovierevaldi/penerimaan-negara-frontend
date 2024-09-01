@@ -5,3 +5,8 @@
 .dropdown-container{
     width: 200px !important;
 }
+
+.table-scrollable{
+    max-height: 70vh !important; /* Adjust height as needed */
+    overflow-y: auto !important; /* Enable vertical scrolling */
+}

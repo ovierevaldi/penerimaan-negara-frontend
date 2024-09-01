@@ -2,7 +2,6 @@
 
 require('./sidebar.css');
 
-import Link from "next/link";
 import { redirect, useRouter } from "next/navigation";
 
 export default function Sidebar(){
