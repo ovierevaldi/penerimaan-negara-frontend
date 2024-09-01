@@ -1,3 +1,5 @@
+require('./dashboard.css');
+
 import Sidebar from "./../common/sidebar/sidebar";
 import Header from "./../common/header/header";
 
@@ -8,13 +10,9 @@ export default function DashboardLayout({
   }) {
     return(
         <div className="d-flex">
-              <div className="mw-25">
-                  <Sidebar></Sidebar>
-              </div>
-              <div className="">
-                <div className="my-4">
-                  <Header></Header>
-                </div>
+              <Sidebar></Sidebar>
+              <div className="dashboard-layout">
+                <Header></Header>
                 {children}
               </div>
           </div> 

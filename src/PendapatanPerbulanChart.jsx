@@ -3,7 +3,7 @@ import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 
-function Chart(props) {
+function PendapatanPerbulanChart(props) {
   useLayoutEffect(() => {
     let root = am5.Root.new("chartdiv");
 
@@ -20,18 +20,17 @@ function Chart(props) {
 
     // Define data
     let data = [{
-      category: "Research",
-      value1: 1000,
-      value2: 588
+      category: "Januari",
+      pajak: 1000,
+      pajakdaerah: 588,
+      bukanpajak: 1200,
     }, {
-      category: "Marketing",
-      value1: 1200,
-      value2: 1800
-    }, {
-      category: "Sales",
-      value1: 850,
-      value2: 1230
-    }];
+      category: "Februari",
+      pajak: 1200,
+      pajakdaerah: 1800,
+      bukanpajak: 1200,
+    },
+  ];
 
     // Create Y-axis
     let yAxis = chart.yAxes.push(
@@ -52,10 +51,10 @@ function Chart(props) {
     // Create series
     let series1 = chart.series.push(
       am5xy.ColumnSeries.new(root, {
-        name: "Series",
+        name: "Pajak",
         xAxis: xAxis,
         yAxis: yAxis,
-        valueYField: "value1",
+        valueYField: "pajak",
         categoryXField: "category"
       })
     );
@@ -63,14 +62,26 @@ function Chart(props) {
 
     let series2 = chart.series.push(
       am5xy.ColumnSeries.new(root, {
-        name: "Series",
+        name: "Pajak Daerah",
         xAxis: xAxis,
         yAxis: yAxis,
-        valueYField: "value2",
+        valueYField: "pajakdaerah",
         categoryXField: "category"
       })
     );
     series2.data.setAll(data);
+
+    
+    let series3 = chart.series.push(
+      am5xy.ColumnSeries.new(root, {
+        name: "Bukan Pajak",
+        xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: "bukanpajak",
+        categoryXField: "category"
+      })
+    );
+    series3.data.setAll(data);
 
     // Add legend
     let legend = chart.children.push(am5.Legend.new(root, {}));
@@ -85,7 +96,7 @@ function Chart(props) {
   }, []);
 
   return (
-    <div id="chartdiv" style={{ width: "500px", height: "500px" }}></div>
+    <div id="chartdiv" style={{ width: "100%", height: "650px" }}></div>
   );
 }
-export default Chart;
+export default PendapatanPerbulanChart;

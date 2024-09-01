@@ -1,3 +1,7 @@
 .icon-large{
     font-size: 18px;
 }
+
+.dropdown-container{
+    width: 200px !important;
+}

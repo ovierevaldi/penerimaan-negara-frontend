@@ -1,16 +1,13 @@
 "use client"
 
-import Link from "next/link";
+require('./../global.css')
 
 import "chart.js/auto";
-import { Bar } from "react-chartjs-2";
-
-import Chart from './../../src/Chart'
-import Header from "../common/header/header";
-import Sidebar from "../common/sidebar/sidebar";
+import Chart from '../../src/PendapatanPerbulanChart'
 import { getCookie } from 'cookies-next';
 import { redirect, useRouter } from "next/navigation";
 import { useEffect } from "react";
+import PendapatanPerbulanChart from "../../src/PendapatanPerbulanChart";
 
 export default function DashboardPage() {
     useEffect(() => {
@@ -20,38 +17,31 @@ export default function DashboardPage() {
         }
     }, []);
     
-    
     return(
-       <div>
+       <div className="dashboard-page">
+            <h3>Chart</h3>
+            <br />
             <div>
-                <h3>Chart</h3>
-                <div className="d-flex">
-                    <select className="form-select" aria-label="Default select example">
-                        <option selected>Tahun</option>
+                <p><b>Filter:</b> </p>
+                <div className="d-flex column-gap-4">
+                    <select className="form-select dropdown-container" aria-label="Default select example">
+                        <option selected>var_tahundefault</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                     </select>
-                    <select className="form-select" aria-label="Default select example">
-                        <option selected>Bulan</option>
+                    <select className="form-select dropdown-container" aria-label="Default select example">
+                        <option selected>var_bulandefault</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                     </select>
+                    
                 </div>
-                <div>
-            
-                <Chart />
-
-                    {/* <Bar 
-                        data={{
-                            datasets: [{
-                                data: [20, 10],
-                            }],
-                            labels: ['a', 'b']
-                        }}
-                    /> */}
-                </div>
+            </div>
+            <br />
+            <div className="d-flex justify-content-center">
+                <PendapatanPerbulanChart />
             </div>
        </div>
     )

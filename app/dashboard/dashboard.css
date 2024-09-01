@@ -1,0 +1,11 @@
+.dashboard-layout{
+    width: 100%;
+    padding: 0px 20px 0px 20px;
+}
+
+.dashboard-page{
+    width: 100%;
+    max-width: 1400px;
+    padding: 2rem 0;
+    margin: auto;
+}

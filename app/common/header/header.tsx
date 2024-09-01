@@ -1,5 +1,7 @@
 'use client'
 
+require('./header.css')
+
 import Link from "next/link";
 import { deleteCookie } from 'cookies-next';
 import { redirect, useRouter } from "next/navigation";
@@ -13,10 +15,10 @@ export default function Header(){
     }
 
     return(
-        <div className="d-flex py-2 justify-content-between">
-            <h1>Penerimaan Pajak</h1>
+        <div className="header-container pt-2 pb-2 border-bottom border-2">
+            <h1 className="w-100 text-secondary">Penerimaan Pajak</h1>
 
-            <div className="d-flex align-items-center column-gap-4">
+            <div className="d-flex align-items-center column-gap-4 user-section">
                 <div>
                     <span><b>User</b>: var_username</span>
                     <br />
