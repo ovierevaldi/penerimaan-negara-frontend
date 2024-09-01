@@ -93,7 +93,6 @@ export default function InputPemasukanPage() {
     const [response, setResponse] = useState(null);
     const [error, setError] = useState(null);
 
-
     const modalButtonRef = useRef(null);
 
     const handelTipePajakChange = (event) => {
@@ -127,7 +126,6 @@ export default function InputPemasukanPage() {
             jumlah: jumlahPemasukan,
             tanggal: getCurrentDate(),
         };
-        console.log(url, postData, token)
         postRequest(url, postData, token)
     };
 
@@ -140,15 +138,9 @@ export default function InputPemasukanPage() {
                     'Content-Type': 'application/json'
                 }
             });
-            setResponse(res.data);
-            console.log(response);
-
-              // if (modalButtonRef.current) {
-        //     modalButtonRef.current.click();
-        // }
+            setResponse(res.data.message);
         } catch (err) {
-            setError(err);
-            console.log(error)
+            setResponse(err.data.message);
         }
     };
 
@@ -264,7 +256,7 @@ export default function InputPemasukanPage() {
                             ></button>
                         </div>
                         <div className="modal-body">
-                            <p>Input pemasukan Berhasil</p>
+                            <p>{response}</p>
                         </div>
                     </div>
                 </div>
