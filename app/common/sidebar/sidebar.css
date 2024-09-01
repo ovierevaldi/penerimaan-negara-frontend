@@ -1,8 +1,18 @@
+.sidebar-container{
+    height: 100vh;
+}
+
 .no-bullet-list{
     list-style: none;
+    padding-left: 1rem;
 }
 
 .link-sidebar{
     color: white !important;
     text-decoration: none !important;
+    font-size: 18px;
+}
+
+li{
+    padding: 5px 0px 5px 0px;
 }
